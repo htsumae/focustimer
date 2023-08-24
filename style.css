@@ -1,0 +1,145 @@
+/* Configurações gerais*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+
+  --bg-background-color: #121214;
+  --bg-primary-color: #fff;
+  --bg-secondary-color: #C4C4CC;
+  --bg-background-card:#29292E;
+
+
+  font-size: clamp(30%, 1% + 2vw, 62.5%);
+}
+html:not(.running) .fa-circle-pause{
+  display: none;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-background-color);
+  
+}
+#app {
+  display: grid;
+  align-items: center;
+  place-content: center;
+  height: 100vh;
+}
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0; 
+}
+
+
+
+/* Configurações section id timer  */
+#timer{
+  display: flex;
+  font-size: 12.6rem;
+  font-weight: 500;
+  color: var(--bg-primary-color);
+}
+
+
+/* Configurações section id controls*/
+#controls {
+  display: flex;
+  align-items: flex-start;
+  place-content: center;
+  
+  margin-top: 1.7rem;
+}
+#controls button{
+  font-size: 4.8rem;
+  background: 0;
+  border: 0;
+  color: var(--bg-secondary-color);
+}
+#controls button + button {
+  margin-right: 4rem;
+}
+#controls button:hover{
+  cursor:pointer;
+}
+
+
+/* Configuração section id cards*/
+#cards{
+  display: grid;
+  grid-template-areas:
+   "A B"
+   "C D";
+   gap: 3.2rem;
+   margin-top: 5rem;
+}
+#cards button{
+  border: 0;
+  background-color: var(--bg-background-card);
+  border-radius: 2.4rem;
+  padding: 4.7rem;
+  transition: .5s ease-out;
+}
+#cards button:hover{
+  cursor: pointer;
+}
+
+
+/* configuraçoes alteração entre modo dark e light */
+html.light{
+  --bg-background-color: #fff;
+  --bg-primary-color: #323238;
+  --bg-secondary-color: #323238;
+  --bg-background-card:#E1E1E6;
+  --bg-action-hover: #02799D;
+
+}
+html.light .moon,
+html:not(.light) .sun{
+  display: none;
+}
+html.light #cards button svg path,
+html.light #controls button svg path{
+  fill:var(--bg-secondary-color) ;
+}
+#toggle-mode{
+  font-size: 4.8rem;
+  background: 0;
+  border: 0;
+
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+}
+#controls button svg path,
+#cards button svg path
+{
+  fill:var(--bg-secondary-color) ;
+}
+
+/* configurações interação com card  */
+
+#cards button.active{
+  --bg-secondary-color: #FFF;
+  --bg-background-card:#02799D;
+}
+
+
+
+
+@media (min-width: 1024px) {
+  #app{
+    display: flex;
+    gap: 19.2rem;
+    margin: -10px;
+  }
+}
