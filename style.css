@@ -14,6 +14,7 @@
 
   font-size: clamp(30%, 1% + 2vw, 62.5%);
 }
+.running .fa-circle-play,
 html:not(.running) .fa-circle-pause{
   display: none;
 }
@@ -131,7 +132,9 @@ html.light #controls button svg path{
 #cards button.active{
   --bg-secondary-color: #FFF;
   --bg-background-card:#02799D;
+  animation: cardpulse .8s ease-in;
 }
+
 
 
 
@@ -141,5 +144,13 @@ html.light #controls button svg path{
     display: flex;
     gap: 19.2rem;
     margin: -10px;
+  }
+}
+
+@keyframes cardpulse {
+
+  20%{
+    transform: scale(1.1);
+    --bg-background-card:#087799;
   }
 }
